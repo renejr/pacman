@@ -1,0 +1,26 @@
+# Pastas específicas do projeto
+.trae/
+Varios/
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Dependências e módulos
+node_modules/
+vendor/
+
+# Arquivos de ambiente e configuração local
+.env
+.env.local
+*.log
+
+# Arquivos de IDE e editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Arquivos de build e distribuição
+dist/
+build/
