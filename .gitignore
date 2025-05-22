@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Pastas específicas do projeto
 .trae/
 Varios/
@@ -23,4 +24,31 @@ vendor/
 
 # Arquivos de build e distribuição
 dist/
+=======
+# Pastas específicas do projeto
+.trae/
+Varios/
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Dependências e módulos
+node_modules/
+vendor/
+
+# Arquivos de ambiente e configuração local
+.env
+.env.local
+*.log
+
+# Arquivos de IDE e editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Arquivos de build e distribuição
+dist/
+>>>>>>> 1e21c76fe46671075ddc35e2c3ee3a3f7427f746
 build/
