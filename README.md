@@ -37,7 +37,7 @@ Recriação moderna do clássico Pac-Man usando Phaser 3, com gráficos 8-bits e
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/pacman.git
+git clone https://github.com/renejr/pacman.git
 ```
 
 2. Acesse a pasta do projeto:
@@ -51,7 +51,7 @@ cd pacman
 
 4. Configure o repositório remoto:
    ```bash
-   git remote add origin https://github.com/seu-usuario/pacman.git
+   git remote add origin https://github.com/renejr/pacman.git
    git push -u origin main
    ```
 
