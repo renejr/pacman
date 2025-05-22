@@ -54,7 +54,11 @@ export default class MenuScene extends Phaser.Scene {
             });
         }
 
-        // Responsividade: calcula tamanhos baseados na tela
+        // Protege contra chamadas prematuras
+        if (!this.cameras || !this.cameras.main) {
+            return;
+        }
+
         const screenW = this.cameras.main.width;
         const screenH = this.cameras.main.height;
 
