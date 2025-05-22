@@ -49,7 +49,13 @@ cd pacman
    - Copie os arquivos para a pasta web (ex: www ou htdocs)
    - Configure o virtual host se necessário
 
-4. Acesse o jogo:
+4. Configure o repositório remoto:
+   ```bash
+   git remote add origin https://github.com/seu-usuario/pacman.git
+   git push -u origin main
+   ```
+
+5. Acesse o jogo:
    - Abra o navegador
    - Digite: `http://localhost/pacman`
 
