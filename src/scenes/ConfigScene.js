@@ -91,35 +91,49 @@ export default class ConfigScene extends Phaser.Scene {
         const menuItems = [];
 
         // Volume (botão expansível)
-        const volumeButton = this.add.text(centerX, menuY, 'Volume', {
-            fontFamily: 'monospace',
-            fontSize: '28px',
-            color: '#fff',
-            backgroundColor: '#222',
-            padding: { left: 24, right: 24, top: 8, bottom: 8 },
-            align: 'center'
-        }).setOrigin(0.5).setInteractive({ useHandCursor: true });
+        // const volumeButton = this.add.text(centerX, menuY, 'Volume', {
+        //     fontFamily: 'monospace',
+        //     fontSize: '28px',
+        //     color: '#fff',
+        //     backgroundColor: '#222',
+        //     padding: { left: 24, right: 24, top: 8, bottom: 8 },
+        //     align: 'center'
+        // }).setOrigin(0.5).setInteractive({ useHandCursor: true });
         
-        // Cria o slider mas deixa invisível inicialmente
-        let volumeSlider = this.add.dom(centerX, menuY + 40, 'input', 'width:220px; height:18px; border-radius:8px; background:#222;').setOrigin(0.5);
+        // Volume (apenas slider com porcentagem ao lado)
+        const sliderY = menuY;
+        let volumeValue = localStorage.getItem('volume') || 50;
+
+        // Cria o slider de volume centralizado
+        let volumeSlider = this.add.dom(centerX - 40, sliderY, 'input', 'width:180px; height:18px; border-radius:8px; background:#222;', '').setOrigin(0.5);
         volumeSlider.node.type = 'range';
         volumeSlider.node.min = 0;
         volumeSlider.node.max = 100;
-        volumeSlider.node.value = localStorage.getItem('volume') || 50;
-        volumeSlider.setVisible(false);
+        volumeSlider.node.value = volumeValue;
+
+        // Cria o texto da porcentagem ao lado direito do slider
+        let volumePercentText = this.add.text(centerX + 70, sliderY, volumeValue + '%', {
+            fontFamily: 'monospace',
+            fontSize: '24px',
+            color: '#fff',
+            align: 'left'
+        }).setOrigin(0, 0.5);
+
+        // Atualiza o valor ao arrastar o slider
         volumeSlider.node.oninput = () => {
             localStorage.setItem('volume', volumeSlider.node.value);
             if (this.sound) {
                 this.sound.volume = volumeSlider.node.value / 100;
             }
+            volumePercentText.setText(volumeSlider.node.value + '%');
         };
         
         // Alterna a visibilidade do slider ao clicar no botão
-        let sliderVisible = false;
-        volumeButton.on('pointerdown', () => {
-            sliderVisible = !sliderVisible;
-            volumeSlider.setVisible(sliderVisible);
-        });
+        // let sliderVisible = false;
+        // volumeButton.on('pointerdown', () => {
+        //     sliderVisible = !sliderVisible;
+        //     volumeSlider.setVisible(sliderVisible);
+        // });
 
         // Dificuldade
         menuItems.push(this.add.text(centerX, menuY + 80, 'Dificuldade', {
